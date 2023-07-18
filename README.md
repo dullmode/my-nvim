@@ -2,7 +2,7 @@
 
 > brah
 
-![Screenshot](https://i.imgur.com/vouHMdC.png)
+![Screenshot](https://i.imgur.com/pWJ3cpk.png)
 
 
 ## [TODO](#todo)
