@@ -59,3 +59,5 @@ end)
 require('hop').setup()
 require('neoscroll').setup()
 require('nvim-surround').setup()
+
+return plugins

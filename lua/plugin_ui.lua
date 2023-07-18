@@ -26,30 +26,35 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', '!', api.tree.toggle_hidden_filter, opts('Toggle Dotfiles'))
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
+
 require('nvim-tree').setup({
   on_attach = my_on_attach,
   renderer = {
     icons = {
       glyphs = {
-	folder = {
-	  arrow_closed = '▶',
-	  arrow_open = '▼',
-	  default = '📁',
-	  open = '📂',
-	  empty = '🈳',
-	  empty_open = '🈳',
-	  symlink = '👣',
-	  symlink_open = '👣',
-	},
-	git = {
-	  unstaged = '✗',
-	  staged = '✓',
-	  unmerged = 'x',
-	  renamed = '➜',
-	  untracked = '★',
-	  deleted = 'x',
-	  ignored = 'x',
-	},
+        default = "📄",
+        symlink = "📫",
+        bookmark = "⭐",
+        modified = "🔸",
+        folder = {
+          arrow_closed = "⏵",
+          arrow_open = "⏷",
+          default = "📁",
+          open = "📂",
+          empty = "📪",
+          empty_open = "📭",
+          symlink = "📫",
+          symlink_open = "📬",
+        },
+        git = {
+          unstaged = "✴️ ",
+          staged = "✅",
+          unmerged = "⏪",
+          renamed = "🔄",
+          untracked = "🆕",
+          deleted = "⛔️",
+          ignored = "ℹ️ ",
+        },
       }
     }
   },
