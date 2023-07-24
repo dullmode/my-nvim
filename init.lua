@@ -1,6 +1,2 @@
 require('plugins')
-require('plugin_lsp')
-require('plugin_color')
-require('plugin_ui')
-require('keymaps')
-require('autocmd')
+require('settings')

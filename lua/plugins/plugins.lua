@@ -1,13 +1,13 @@
-local plugins = require("packer").startup(function()
+local plugins = require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("nvim-tree/nvim-tree.lua")
 	use("nvim-tree/nvim-web-devicons")
-	use("dullmode/byebye-mojibake")
-	-- use("~/programs/tools/byebye-mojibake")
+	use("dullmode/bye-nerdfont.nvim")
 	use("goolord/alpha-nvim")
+	use("rebelot/kanagawa.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -56,19 +56,5 @@ local plugins = require("packer").startup(function()
 		end,
 	})
 end)
-
-local bye = require("byebye-mojibake")
-bye.setup({
-	mode = "simple",
-})
-require("nvim-web-devicons").set_icon({
-	bye.get_icons(),
-})
-require("nvim-web-devicons").set_default_icon(
-	bye.get_default_icon()
-)
-require("hop").setup()
-require("neoscroll").setup()
-require("nvim-surround").setup()
 
 return plugins

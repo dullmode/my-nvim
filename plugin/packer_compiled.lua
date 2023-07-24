@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/home/dull/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["byebye-mojibake"] = {
+  ["bye-nerdfont.nvim"] = {
     loaded = true,
-    path = "/home/dull/.local/share/nvim/site/pack/packer/start/byebye-mojibake",
-    url = "https://github.com/dullmode/byebye-mojibake"
+    path = "/home/dull/.local/share/nvim/site/pack/packer/start/bye-nerdfont.nvim",
+    url = "https://github.com/dullmode/bye-nerdfont.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -119,6 +119,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dull/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/dull/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,

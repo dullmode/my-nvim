@@ -1,0 +1,5 @@
+require('plugins.plugins')
+require('plugins.ui')
+require('plugins.color')
+require('plugins.lsp')
+require('plugins.util')

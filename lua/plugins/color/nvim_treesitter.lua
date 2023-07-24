@@ -1,4 +1,3 @@
--- nvim-treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "python", "vue", "vim", "typescript", "dockerfile" },
 	sync_install = false,

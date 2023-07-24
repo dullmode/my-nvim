@@ -3,17 +3,10 @@ local keymap = vim.keymap
 -- Map Y to y$
 keymap.set("n", "Y", "y$")
 
--- Map H, L to gT, gt
-keymap.set("n", "H", "gT")
-keymap.set("n", "L", "gt")
-
--- Map <Tab>l, <Tab>h to move to the next tab, previous tab
-keymap.set("n", "<Tab>l", ":tabmove +<CR>", { silent = true })
-keymap.set("n", "<Tab>h", ":tabmove -<CR>", { silent = true })
-
 -- Map <C-h>, <C-l> to switch to the previous buffer, next buffer
-keymap.set("n", "<C-h>", ":bprev<CR>", { silent = true })
-keymap.set("n", "<C-l>", ":bnext<CR>", { silent = true })
+keymap.set("n", "H", ":bprev<CR>", { silent = true })
+keymap.set("n", "L", ":bnext<CR>", { silent = true })
+keymap.set("n", "Q", ":bd<CR>:bprev<CR>", { silent = true })
 
 -- Map <Esc><Esc> to clear search highlight
 keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>")
