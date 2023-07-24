@@ -1,23 +1,12 @@
 local plugins = require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
+	-- lsp
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use("nvim-tree/nvim-tree.lua")
-	use("nvim-tree/nvim-web-devicons")
-	use("dullmode/bye-nerdfont.nvim")
-	use("goolord/alpha-nvim")
-	use("rebelot/kanagawa.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = "nvim-lua/plenary.nvim",
-	})
-	use("karb94/neoscroll.nvim")
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
 	})
 	use({
 		"hrsh7th/cmp-nvim-lsp",
@@ -28,13 +17,12 @@ local plugins = require("packer").startup(function(use)
 		"hrsh7th/vim-vsnip",
 		"hrsh7th/cmp-vsnip",
 	})
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2",
-		config = function()
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-		end,
-	})
+	-- user interface
+	use("goolord/alpha-nvim")
+	use("nvim-tree/nvim-tree.lua")
+	use("nvim-tree/nvim-web-devicons")
+	-- use('~/programs/tools/bye-nerdfont.nvim')
+	use("dullmode/bye-nerdfont.nvim")
 	use({
 		"akinsho/bufferline.nvim",
 		tag = "*",
@@ -44,10 +32,28 @@ local plugins = require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
+	-- util
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2",
+		config = function()
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
 	use({
 		"kylechui/nvim-surround",
 		tag = "*",
 	})
+	use("karb94/neoscroll.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+	use("windwp/nvim-ts-autotag")
+	-- coloring
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -55,6 +61,8 @@ local plugins = require("packer").startup(function(use)
 			ts_update()
 		end,
 	})
+	use("rebelot/kanagawa.nvim")
+	use("norcalli/nvim-colorizer.lua")
 end)
 
 return plugins
