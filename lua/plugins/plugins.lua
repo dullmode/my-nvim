@@ -32,6 +32,7 @@ local plugins = require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
+	use("arkav/lualine-lsp-progress")
 	-- util
 	use({
 		"phaazon/hop.nvim",
