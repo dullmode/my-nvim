@@ -13,10 +13,10 @@ create({ "BufEnter", "BufWinEnter" }, {
 	end,
 })
 create({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.py" },
+	pattern = { "*.py", "*.lua" },
 	command = "set shiftwidth=4",
 })
 create({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.ts", "*.vue", "*.lua", "*.dart" },
+	pattern = { "*.ts", "*.vue", "*.dart" },
 	command = "set shiftwidth=2",
 })
