@@ -1,14 +1,25 @@
-local plugins = require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	-- lsp
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = "nvim-lua/plenary.nvim",
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
-	use({
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+	"neovim/nvim-lspconfig",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+	},
+	{
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -16,54 +27,52 @@ local plugins = require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/vim-vsnip",
 		"hrsh7th/cmp-vsnip",
-	})
+	},
 	-- user interface
-	use("goolord/alpha-nvim")
-	use("nvim-tree/nvim-tree.lua")
-	use("nvim-tree/nvim-web-devicons")
-	-- use('~/programs/tools/bye-nerdfont.nvim')
-	use("dullmode/bye-nerdfont.nvim")
-	use({
+	"goolord/alpha-nvim",
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
+	-- '~/programs/tools/bye-nerdfont.nvim'
+	"dullmode/bye-nerdfont.nvim",
+	{
 		"akinsho/bufferline.nvim",
 		tag = "*",
-		requires = "nvim-tree/nvim-web-devicons",
-	})
-	use({
+		dependencies = "nvim-tree/nvim-web-devicons",
+	},
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
-	use("arkav/lualine-lsp-progress")
+		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+	},
+	"arkav/lualine-lsp-progress",
 	-- util
-	use({
+	{
 		"phaazon/hop.nvim",
 		branch = "v2",
 		config = function()
 			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 		end,
-	})
-	use({
+	},
+	{
 		"kylechui/nvim-surround",
 		tag = "*",
-	})
-	use("karb94/neoscroll.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use({
+	},
+	"karb94/neoscroll.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
-	})
-	use("windwp/nvim-ts-autotag")
+	},
+	"windwp/nvim-ts-autotag",
 	-- coloring
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
 		end,
-	})
-	use("rebelot/kanagawa.nvim")
-	use("norcalli/nvim-colorizer.lua")
-end)
-
-return plugins
+	},
+	"rebelot/kanagawa.nvim",
+	"norcalli/nvim-colorizer.lua",
+})
