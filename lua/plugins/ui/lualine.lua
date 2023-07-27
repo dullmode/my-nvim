@@ -63,67 +63,38 @@ ins_left({
 })
 
 ins_left({
-	"filesize",
-	cond = conditions.buffer_not_empty,
-})
-
-ins_left({
-	"filename",
-	cond = conditions.buffer_not_empty,
-})
-
-ins_left({ "location" })
-
-ins_left({
-	"progress",
+	-- Lsp server name .
+	function()
+		local clients = {}
+		for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+			if client.name == "null-ls" then
+				local sources = {}
+				for _, source in ipairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
+					table.insert(sources, source.name)
+				end
+				table.insert(clients, "null-ls(" .. table.concat(sources, ", ") .. ")")
+			else
+				table.insert(clients, client.name)
+			end
+		end
+		-- return " " .. table.concat(clients, ", ")
+		if next(clients) == nil then
+			return "No lsp"
+		end
+		return table.concat(clients, ", ")
+	end,
+	icon = "⛶ ",
 })
 
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	symbols = lualine_icons.sections.diagnostics.symbols
-})
-
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
-ins_left({
-	function()
-		return "%="
-	end,
+	symbols = lualine_icons.sections.diagnostics.symbols,
 })
 
 ins_left({
-	-- Lsp server name .
-	function()
-		local msg = "No Active Lsp"
-		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-		local clients = vim.lsp.get_active_clients()
-		if next(clients) == nil then
-			return msg
-		end
-		for _, client in ipairs(clients) do
-			local filetypes = client.config.filetypes
-			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				return client.name
-			end
-		end
-		return msg
-	end,
-	icon = "⌬ ",
-	color = { fg = "#76946A" },
-})
-
--- Add components to right sections
-ins_right({
-	"o:encoding", -- option component same as &encoding in viml
-	fmt = string.upper, -- I'm not sure why it's upper case either ;)
-	cond = conditions.hide_in_width,
-})
-
-ins_right({
-	"fileformat",
-	fmt = string.upper,
-	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+	"lsp_progress",
+	display_components = { "spinner", { "title", "percentage" } },
 })
 
 ins_right({

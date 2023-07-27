@@ -28,5 +28,3 @@ require("nvim-tree").setup({
 	renderer = nvim_tree_icons.renderer,
 	diagnostics = nvim_tree_icons.diagnostics,
 })
-
-
