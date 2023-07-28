@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- lsp
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -36,7 +37,7 @@ require("lazy").setup({
 	"dullmode/bye-nerdfont.nvim",
 	{
 		"akinsho/bufferline.nvim",
-		tag = "*",
+		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 	{
@@ -54,7 +55,7 @@ require("lazy").setup({
 	},
 	{
 		"kylechui/nvim-surround",
-		tag = "*",
+		version = "*",
 	},
 	"karb94/neoscroll.nvim",
 	"lukas-reineke/indent-blankline.nvim",
