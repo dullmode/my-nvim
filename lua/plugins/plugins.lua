@@ -65,6 +65,12 @@ require("lazy").setup({
 			require("nvim-autopairs").setup({})
 		end,
 	},
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
 	"windwp/nvim-ts-autotag",
 	-- coloring
 	{
