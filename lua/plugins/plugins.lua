@@ -72,6 +72,7 @@ require("lazy").setup({
 		end,
 	},
 	"windwp/nvim-ts-autotag",
+	"moll/vim-bbye",
 	-- coloring
 	{
 		"nvim-treesitter/nvim-treesitter",

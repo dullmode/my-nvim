@@ -60,7 +60,7 @@ local header_c = {
 	"⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿",
 }
 
-dashboard.section.header.val = header_b
+dashboard.section.header.val = header_c
 
 -- Set menu
 dashboard.section.buttons.val = {
