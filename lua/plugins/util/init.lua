@@ -1,4 +1,5 @@
 require("plugins.util.hop")
+require("plugins.util.bbye")
 require("plugins.util.indent_blankline")
 require("plugins.util.neoscroll")
 require("plugins.util.nvim_surround")
