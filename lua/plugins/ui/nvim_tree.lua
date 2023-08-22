@@ -28,3 +28,5 @@ require("nvim-tree").setup({
 	renderer = nvim_tree_icons.renderer,
 	diagnostics = nvim_tree_icons.diagnostics,
 })
+
+vim.keymap.set("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>", { silent = true })

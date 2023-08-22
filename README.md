@@ -19,6 +19,7 @@ apps/enplet/frontend/node_modules/typescript/lib
 * nvim v0.10.0-dev
 * gcc (for tree-sitter)
 * g++ (for tree-sitter)
+* ripgrep (for telescope)
 
 ```bash
 apt-get install gcc

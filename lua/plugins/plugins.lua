@@ -71,6 +71,11 @@ require("lazy").setup({
 			require("Comment").setup()
 		end,
 	},
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	"windwp/nvim-ts-autotag",
 	"moll/vim-bbye",
 	-- coloring

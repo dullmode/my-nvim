@@ -35,5 +35,3 @@ bufferline.setup({
 vim.cmd([[hi BufferLineSeparator guifg=#15161E]])
 vim.cmd([[hi BufferLineSeparatorSelected guifg=#15161E]])
 vim.cmd([[hi BufferLineSeparatorVisible guifg=#15161E]])
-vim.cmd([[hi BufferLineBackground guifg=#979797]])
-vim.cmd([[hi BufferLineCloseButton guifg=#979797]])
